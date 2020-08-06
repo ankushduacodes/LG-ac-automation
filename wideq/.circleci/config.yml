@@ -1,0 +1,28 @@
+version: 2.1
+
+jobs:
+    build:
+        working_directory: ~/wideq
+        docker:
+            - image: circleci/python:3.7
+        steps:
+            - checkout
+
+            # Install Tox.
+            - restore_cache:
+                key: pip
+            - run:
+                command: sudo pip install tox
+            - save_cache:
+                key: pip
+                paths:
+                    - "~/.cache/pip"
+
+            # Run Tox.
+            - restore_cache:
+                key: tox-{{ checksum "tox.ini" }}
+            - run:
+                command: tox -e py37,flake8
+            - save_cache:
+                key: tox-{{ checksum "tox.ini" }}
+                paths: [".tox"]
