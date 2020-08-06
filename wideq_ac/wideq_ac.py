@@ -7,14 +7,15 @@ import time
 state_file = "ac_state.json"
 
 
-JET_ARG = {
+# Feature has yet to be added to wideq release version
+# JET_ARG = {
 
-    "OFF" : wideq.ACJetMode.OFF,
-    "COOL_JET" : wideq.ACJetMode.COOL,
-    "HEAT_JET" : wideq.ACJetMode.HEAT,
-    "DRY_JET" : wideq.ACJetMode.DRY,
-    "HIM_COOL" : wideq.ACJetMode.HIMALAYAS
-}
+#     "OFF" : wideq.ACJetMode.OFF,
+#     "COOL_JET" : wideq.ACJetMode.COOL,
+#     "HEAT_JET" : wideq.ACJetMode.HEAT,
+#     "DRY_JET" : wideq.ACJetMode.DRY,
+#     "HIM_COOL" : wideq.ACJetMode.HIMALAYAS
+# }
 
 
 SPEED_ARG = {
@@ -308,31 +309,32 @@ class WideqAC:
             sys.exit(0)
 
 
-    def turn_jet_mode(self, device_id, jet_opt):
+# Feature has yet to be added to wideq release version
+    # def turn_jet_mode(self, device_id, jet_opt):
 
-        ac = wideq.ACDevice(self.client, self._force_device(device_id))
+    #     ac = wideq.ACDevice(self.client, self._force_device(device_id))
 
-        retry_count = 5
-        while retry_count:
-            try:
-                selected_jet_mode = JET_ARG.get(jet_opt.upper(), 'N/A')
+    #     retry_count = 5
+    #     while retry_count:
+    #         try:
+    #             selected_jet_mode = JET_ARG.get(jet_opt.upper(), 'N/A')
 
-                if (selected_jet_mode == 'N/A'):
-                    print('INVALID MODE!...')
-                    print('Please select one of ' + ', '.join(JET_ARG))
-                    return False
+    #             if (selected_jet_mode == 'N/A'):
+    #                 print('INVALID MODE!...')
+    #                 print('Please select one of ' + ', '.join(JET_ARG))
+    #                 return False
 
-                ac.set_jet_mode(selected_jet_mode)
-                break
+    #             ac.set_jet_mode(selected_jet_mode)
+    #             break
 
-            except wideq.NotLoggedInError:
-                time.sleep(10)
-                retry_count -= 1
-                self.client.refresh()
+    #         except wideq.NotLoggedInError:
+    #             time.sleep(10)
+    #             retry_count -= 1
+    #             self.client.refresh()
 
-        else:
-            print("Session could not be extablished") 
-            sys.exit(0)
+    #     else:
+    #         print("Session could not be extablished") 
+    #         sys.exit(0)
 
 
     def return_ac_info(self, device_id):
