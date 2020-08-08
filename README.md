@@ -4,5 +4,6 @@ by Adrian Sampsyo(https://github.com/sampsyo)
 
 First Step:
 `pip install wideq`
+
 Second Step:
 `python3 config_ac.py`
