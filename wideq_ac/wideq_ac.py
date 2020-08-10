@@ -7,7 +7,6 @@ import time
 state_file = "ac_state.json"
 
 
-Feature has yet to be added to wideq release version
 JET_ARG = {
 
     "OFF" : wideq.ACJetMode.OFF,
