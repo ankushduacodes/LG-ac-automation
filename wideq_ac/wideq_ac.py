@@ -309,7 +309,7 @@ class WideqAC:
             sys.exit(0)
 
 
-Feature has yet to be added to wideq release version
+
     def turn_jet_mode(self, device_id, jet_opt):
 
         ac = wideq.ACDevice(self.client, self._force_device(device_id))
